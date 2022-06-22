@@ -5,14 +5,12 @@ import dlib
 from .eye import Eye
 from .calibration import Calibration
 
-
 class GazeTracking(object):
     """
     This class tracks the user's gaze.
     It provides useful information like the position of the eyes
     and pupils and allows to know if the eyes are open or closed
     """
-
 
     def __init__(self):
         self.frame = None
@@ -27,7 +25,6 @@ class GazeTracking(object):
         cwd = os.path.abspath(os.path.dirname(__file__))
         model_path = os.path.abspath(os.path.join(cwd, "trained_models/shape_predictor_68_face_landmarks.dat"))
         self._predictor = dlib.shape_predictor(model_path)
-
 
     @property
     def pupils_located(self):
@@ -84,8 +81,8 @@ class GazeTracking(object):
         the center is 0.5 and the extreme left is 1.0
         """
         if self.pupils_located:
-            pupil_left = self.eye_left.pupil.x / (self.eye_left.center[0] * 2 - 10)
-            pupil_right = self.eye_right.pupil.x / (self.eye_right.center[0] * 2 - 10)
+            pupil_left = self.eye_left.pupil.x / (self.eye_left.center[0] * 2 - 20)
+            pupil_right = self.eye_right.pupil.x / (self.eye_right.center[0] * 2 - 20)
             return (pupil_left + pupil_right) / 2
 
     def vertical_ratio(self):
@@ -101,12 +98,12 @@ class GazeTracking(object):
     def is_right(self):
         """Returns true if the user is looking to the right"""
         if self.pupils_located:
-            return self.horizontal_ratio() <= 0.65
+            return self.horizontal_ratio() <= 0.35
 
     def is_left(self):
         """Returns true if the user is looking to the left"""
         if self.pupils_located:
-            return self.horizontal_ratio() >= 0.3
+            return self.horizontal_ratio() >= 0.65
 
     def is_center(self):
         """Returns true if the user is looking to the center"""
@@ -117,7 +114,7 @@ class GazeTracking(object):
         """Returns true if the user closes his eyes"""
         if self.pupils_located:
             blinking_ratio = (self.eye_left.blinking + self.eye_right.blinking) / 2
-            return blinking_ratio > 5.8
+            return blinking_ratio > 3.8
 
     def annotated_frame(self):
         """Returns the main frame with pupils highlighted"""
