@@ -10,7 +10,9 @@ def eye_tracking_and_presentation():
     webcam = cv2.VideoCapture(0)
     start_time = time.time()
     total_left_time = 0
+    total_left_count = 0
     total_right_time = 0
+    total_right_count = 0
     while True:
         # We get a new frame from the webcam
         _, frame = webcam.read()
@@ -26,9 +28,11 @@ def eye_tracking_and_presentation():
         elif gaze.is_right():
             text = "Looking right"
             total_right_time += time.time() - start_time
+            #total_right_count += total_right_count + 1
         elif gaze.is_left():
             text = "Looking left"
             total_left_time += time.time() - start_time
+            #total_left_count += total_left_count + 1
         elif gaze.is_center():
             text = "Looking center"
         start_time = time.time()
@@ -43,7 +47,8 @@ def eye_tracking_and_presentation():
 
     print("Total time spent looking left:", total_left_time)
     print("Total time spent looking right:", total_right_time)
-
+    #print("Total counts spent looking left:", total_left_count)
+    #print("Total counts spent looking right:", total_right_count)
 
 def open_powerpoint(file_path):
     os.startfile(file_path)
