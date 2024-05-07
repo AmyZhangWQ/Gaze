@@ -5,7 +5,7 @@
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 [![GitHub stars](https://img.shields.io/github/stars/antoinelame/GazeTracking.svg?style=social)](https://github.com/antoinelame/GazeTracking/stargazers)
 
-This is a Python (2 and 3) library that provides a **webcam-based eye tracking system**. It gives you the exact position of the pupils and the gaze direction, in real time.
+This is a Python 3.10 or 3.12 library that provides a **webcam-based eye tracking system for depression evluation**. It can detact and tracking exact position of the pupils and the gaze direction in real time. when the depression evluation materials running on the screen,  it can caculate the total gaze timespan for diffrent direction, and these data are indicator for depression evluation.
 
 [![Demo](https://i.imgur.com/WNqgQkO.gif)](https://youtu.be/YEZMk1P0-yw)
 
