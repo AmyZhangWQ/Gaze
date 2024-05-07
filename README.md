@@ -9,14 +9,13 @@ This is a Python 3.10 or 3.12 library that provides a **webcam-based eye trackin
 
 [![Demo](https://i.imgur.com/WNqgQkO.gif)](https://youtu.be/YEZMk1P0-yw)
 
-_🚀 Quick note: I'm looking for job opportunities as a software developer, for exciting projects in ambitious companies. Anywhere in the world. Send me an email!_
 
 ## Installation
 
 Clone this project:
 
 ```shell
-git clone https://github.com/antoinelame/GazeTracking.git
+git clone https://github.com/AmyZhangWQ/Gaze.git
 ```
 
 ### For Pip install
